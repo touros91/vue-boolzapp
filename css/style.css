@@ -141,12 +141,12 @@ input[type="text"] {
 }
 
 .contact-name div {
-    font-size: 10px;
+    font-size: 6px;
     color: #B1B1B1;
 }
 
 .chat-container li{
-    max-width: 200px;
+    max-width: 250px;
     list-style: none;
     margin-top: 20px;
     padding: 10px;
@@ -161,12 +161,12 @@ input[type="text"] {
     font-size: 10px;
     text-align: end;
     margin-top: 3px;
-    color: #C2D4BA;
+    color: #B1B1B1;
 }
 
 .green {
     background-color: #D5F9BA;
-    margin-left: 65%;
+    margin-left: 60%;
 }
 
 .white {
