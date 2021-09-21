@@ -13,8 +13,8 @@ body {
 .container {
     max-width: 80%;
     margin: auto;
-    height: 550px;
-    margin-top: 20px;
+    height: 100vh;
+    padding: 20px 0;
     display: flex;
 }
 
@@ -32,8 +32,10 @@ body {
     width: 65%;
 }
 
+/* sezione Nome Utente  */
+
 .username {
-    height: 50px;
+    padding: 9px;
     background-color: #EAEAEA;
     display: flex;
     align-items: center;
@@ -63,6 +65,34 @@ body {
 
 .username-icons i {
     margin: 0 5px;
+}
+
+/* sezione Notifiche  */
+
+.notifications {
+   background-color: #8EDAFD;
+   padding: 14px;
+   font-size: 12px;
+   display: flex;
+   align-items: center;
+}
+
+.notifications i {
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    color: #8EDAFD;
+    font-size: 15px;
+}
+
+.notifications a {
+    display: block;
+    font-size: 10px;
+    color: #608FA4;
+}
+
+.bell {
+    margin-right: 10px;
 }
 
 
