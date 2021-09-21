@@ -44,9 +44,20 @@
                         <a href="">Attiva notifiche desktop</a>
                     </div>
                 </div>
-
+                <!-- sezione input per la ricerca  -->
                 <div class="search">
                     <input type="text" class="fas" placeholder="          &#xf002                 Cerca o inizia una nuova chat">
+                </div>
+
+                <!-- lista delle Chats  -->
+
+                <div class="chats">
+                    <ul>
+                        <li v-for="(contact, index) in contacts" :key="index">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
+                            <span>{{contact.name}}</span>
+                        </li>
+                    </ul>
                 </div>
 
 
