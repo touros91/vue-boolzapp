@@ -33,6 +33,7 @@ body {
 .right-box {
     width: 65%;
     background-image: url("../img/mine.jpg");
+    position: relative;
 }
 
 /* sezione Nome Utente  */
@@ -176,8 +177,9 @@ input[type="text"] {
 }
 
 .write-message {  
-    margin-top: 235px;
-    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .write-message input {
