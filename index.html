@@ -81,8 +81,8 @@
                 <!-- sezione Messaggi della Chat  -->
                 <div class="chat-container">
                     <ul>
-                        <li v-for="(msg, index) in contacts[0].messages" :key="index" >
-                            <span :class='msg.status == "sent" ? "green" : "white"'>{{msg.message}}</span>
+                        <li v-for="(msg, index) in contacts[0].messages" :key="index" :class='contacts[0].messages[index].status == "sent" ? "green" : "white"'>
+                            <span>{{msg.message}}</span>
                             <div>{{msg.date}}</div>
                         </li>
                     </ul>       
