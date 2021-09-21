@@ -48,9 +48,7 @@
                 <div class="search">
                     <input type="text" class="fas" placeholder="          &#xf002                 Cerca o inizia una nuova chat">
                 </div>
-
                 <!-- lista delle Chats  -->
-
                 <div class="chats">
                     <ul>
                         <li v-for="(contact, index) in contacts" :key="index">
@@ -59,19 +57,53 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <!-- box di destra  -->
+            <div class="right-box">
+                <!-- sezione Nome Destinatario Messaggi  -->
+                <div class="username">
+                    <div class="my-account">
+                        <div class="username-avatar">
+                            <img :src="`img/avatar${contacts[0].avatar}.jpg`" alt="Username Avatar">
+                        </div>
+                        <div class="contact-name">
+                            <span>{{contacts[0].name}}</span>
+                            <div>Ultimo accesso oggi alle</div>
+                        </div>
+                    </div>
+                    <div class="username-icons">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+                <!-- sezione Messaggi della Chat  -->
+                <div class="chat-container">
+                    <ul>
+                        <li v-for="(msg, index) in contacts[0].messages" :key="index" >
+                            <span :class='msg.status == "sent" ? "green" : "white"'>{{msg.message}}</span>
+                            <div>{{msg.date}}</div>
+                        </li>
+                    </ul>       
+                </div>
+
+                <div class="write-message">
+
+                    <div class="username">
+                        
+                        <i class="far fa-smile"></i>
+                        <input type="text" placeholder="Scrivi un messaggio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+
+                </div>
+
 
 
 
 
             </div>
-
-
-
-
-
-
-            
-            <div class="right-box"></div>
 
 
 

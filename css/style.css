@@ -27,10 +27,12 @@ body {
     width: 35%;
     background-color: white;
     border-right: 1px solid #B1B1B1;
+    overflow-y: auto;
 }
 
 .right-box {
     width: 65%;
+    background-image: url("../img/mine.jpg");
 }
 
 /* sezione Nome Utente  */
@@ -61,11 +63,10 @@ body {
 .username-icons {
     display: flex;
     color: #B1B1B1;
-    margin-right: 10px;
 }
 
 .username-icons i {
-    margin: 0 5px;
+    margin: 0 7px;
 }
 
 /* sezione Notifiche  */
@@ -80,7 +81,7 @@ body {
 
 .notifications i {
     background-color: white;
-    padding: 10px;
+    padding: 10px 8px;
     border-radius: 50%;
     color: #8EDAFD;
     font-size: 15px;
@@ -112,21 +113,83 @@ input[type="text"] {
     font-family: "Font Awesome 5 Free", 'Lato', sans-serif;
 }
 
-/* sezione Chats  */
+/* sezione lista Chats  */
 
-ul li {
+.chats ul li {
     list-style: none;
     margin-top: 10px;
     display: flex;
     padding: 10px;
 }
 
-ul li img {
+.chats ul li img {
     max-width: 40px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-ul li:hover {
+.chats ul li:hover {
     background-color: #E9EBEB;
+}
+
+/* sezione Messaggi della Chat  */
+
+.contact-name{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.contact-name div {
+    font-size: 10px;
+    color: #B1B1B1;
+}
+
+.chat-container li{
+    max-width: 300px;
+    margin-left: 50%;
+    background-color: #D5F9BA;
+    list-style: none;
+    margin-top: 20px;
+    padding: 8px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.chat-container span {
+    font-size: 13px;
+}
+
+.chat-container div {
+    font-size: 10px;
+    text-align: end;
+    margin-top: 3px;
+    color: #C2D4BA;
+}
+
+.green {
+    background-color: #D5F9BA;
+}
+
+.white {
+    background-color: white;
+    text-align:start;
+}
+
+.write-message {  
+    margin-top: 235px;
+    height: 50px;
+}
+
+.write-message input {
+    padding: 10px;
+    margin: 0 20px;
+}
+
+.write-message i:first-child {
+    margin-left: 10px;
+    color: #8A8F91;
+}
+.write-message i:last-child {
+    margin-right: 10px;
+    color: #6B7376;
 }

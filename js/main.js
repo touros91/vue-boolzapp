@@ -87,7 +87,12 @@ const app = new Vue(
 
         },
         methods: {
-
+            isSent: function(index){
+                if(this.contacts[index].messages.status == "sent"){
+                    return "green";
+                }
+                return "white";
+            }
         }
     }
 )
