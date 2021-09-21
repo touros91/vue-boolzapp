@@ -83,11 +83,32 @@ const app = new Vue(
                         }
                     ],
                 },
-            ]
+            ],
+            newMessage: ""
 
         },
         methods: {
-            
+            sendMessage: function(){
+                if(this.newMessage != "") {
+                    this.contacts[0].messages.push(
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: this.newMessage,
+                            status: `sent`
+                        }
+                    );
+                    this.newMessage = "";
+                }
+                 setTimeout(() => {
+                    this.contacts[0].messages.push(
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: "ok",
+                            status: `received`
+                        }
+                    );
+                }, 2000);
+            }
         }
     }
 )

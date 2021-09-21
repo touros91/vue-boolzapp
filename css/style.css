@@ -144,6 +144,10 @@ input[type="text"] {
     color: #B1B1B1;
 }
 
+.chat-container {
+    overflow-y: auto;
+    height: 100%;
+}
 .chat-container li{
     max-width: 250px;
     list-style: none;
