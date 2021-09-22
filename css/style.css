@@ -125,6 +125,11 @@ input[type="text"] {
     list-style: none;
     padding: 10px;
     display: flex;
+    border-bottom: 1px solid rgb(244, 242, 242);
+}
+
+.chats ul li:last-child{
+    border-bottom: none;
 }
 
 .chats ul li:first-child:active {

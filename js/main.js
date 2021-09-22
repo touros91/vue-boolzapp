@@ -85,7 +85,8 @@ const app = new Vue(
                 },
             ],
             newMessage: "",
-            contactIndex: 0
+            contactIndex: 0,
+            search: ""
         },
         methods: {
             sendMessage: function(){
@@ -108,7 +109,9 @@ const app = new Vue(
                         }
                     );
                 }, 1000);
-            },
+            }
+                 
+                
             
         }
     }
