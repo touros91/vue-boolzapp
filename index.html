@@ -51,7 +51,7 @@
                 <!-- lista delle Chats  -->
                 <div class="chats">
                     <ul>
-                        <li v-for="(contact, index) in contacts" :key="index">
+                        <li v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index">
                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                             <span>{{contact.name}}</span>
                         </li>
@@ -64,10 +64,10 @@
                 <div class="username">
                     <div class="my-account">
                         <div class="username-avatar">
-                            <img :src="`img/avatar${contacts[0].avatar}.jpg`" alt="Username Avatar">
+                            <img :src="`img/avatar${contacts[contactIndex].avatar}.jpg`" alt="Username Avatar">
                         </div>
                         <div class="contact-name">
-                            <span>{{contacts[0].name}}</span>
+                            <span>{{contacts[contactIndex].name}}</span>
                             <div>Ultimo accesso oggi alle</div>
                         </div>
                     </div>
@@ -80,22 +80,23 @@
 
                 <!-- sezione Messaggi della Chat  -->
                 <div class="chat-container">
-                    <ul>
-                        <li v-for="(msg, index) in contacts[0].messages" :key="index" :class='contacts[0].messages[index].status == "sent" ? "green" : "white"'>
-                            <span>{{msg.message}}</span>
-                            <div>{{msg.date}}</div>
-                        </li>
-                    </ul>       
+                   
+                
+                            <li v-for="(msg, index) in contacts[contactIndex].messages" :key="index" :class='msg.status == "sent" ? "green" : "white"'>
+                                <span>{{msg.message}}</span>
+                                <div>{{msg.date}}</div>
+                            </li>
+                            
+                        </ul>  
+
                 </div>
 
                 <div class="write-message">
-
                     <div class="username">
                         <i class="far fa-smile"></i>
                         <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage()">
                         <i class="fas fa-microphone"></i>
                     </div>
-
                 </div>
 
 

@@ -23,7 +23,7 @@ const app = new Vue(
                             message: 'Tutto fatto!',
                             status: 'received'
                         }
-                    ],
+                    ]
                 },
                 {
                     name: 'Fabio',
@@ -44,7 +44,7 @@ const app = new Vue(
                             message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                             status: 'received'
                         }
-                    ],
+                    ]
                 },
                 {
                     name: 'Samuele',
@@ -65,7 +65,7 @@ const app = new Vue(
                             message: 'Ah scusa!',
                             status: 'received'
                         }
-                    ],
+                    ]
                 },
                 {
                     name: 'Luisa',
@@ -81,11 +81,11 @@ const app = new Vue(
                             message: 'Si, ma preferirei andare al cinema',
                             status: 'received'
                         }
-                    ],
+                    ]
                 },
             ],
-            newMessage: ""
-
+            newMessage: "",
+            contactIndex: 0
         },
         methods: {
             sendMessage: function(){
@@ -108,7 +108,10 @@ const app = new Vue(
                         }
                     );
                 }, 2000);
-            }
+            },
+            // showCurrentChat: function(index){
+            //     this.contactIndex == index;
+            // }
         }
     }
 )
