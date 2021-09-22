@@ -109,6 +109,18 @@ const app = new Vue(
                         }
                     );
                 }, 1000);
+            },
+
+            findChat: function(){
+                for(let i = 0; i < this.contacts.length; i++) {
+                    this.contacts[i].name.toLowerCase();
+                    this.search.toLowerCase();
+                    if (this.contacts[i].name.includes(this.search)) {
+                        this.contacts[i].visible = true;
+                    } else {
+                        this.contacts[i].visible = false;
+                    }
+                }
             }
                  
                 

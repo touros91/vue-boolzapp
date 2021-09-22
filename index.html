@@ -46,20 +46,24 @@
                 </div>
                 <!-- sezione input per la ricerca  -->
                 <div class="search">
-                    <input v-model="search" type="text" class="fas" placeholder="          &#xf002                 Cerca o inizia una nuova chat">
+                    <input v-model="search" @change="findChat()" type="text" class="fas" placeholder="          &#xf002                 Cerca o inizia una nuova chat">
                     
                 </div>
                 <!-- lista delle Chats  -->
                 <div class="chats">
                     <ul>
-                        <li v-show="search == ``" v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
+                        <li v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+                            <span>{{contact.name}}</span>
+                        </li>
+                        <!-- <li v-show="search == ``" v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                             <span>{{contact.name}}</span>
                         </li>
                         <li v-show="search == contact.name" v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                             <span>{{contact.name}}</span>
-                        </li>
+                        </li> -->
                     </ul>
                     
                 </div>
