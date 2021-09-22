@@ -52,20 +52,11 @@
                 <!-- lista delle Chats  -->
                 <div class="chats">
                     <ul>
-                        <li v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
+                        <li v-if="contact.visible == true" v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                             <span>{{contact.name}}</span>
                         </li>
-                        <!-- <li v-show="search == ``" v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
-                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
-                            <span>{{contact.name}}</span>
-                        </li>
-                        <li v-show="search == contact.name" v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
-                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
-                            <span>{{contact.name}}</span>
-                        </li> -->
-                    </ul>
-                    
+                    </ul>    
                 </div>
             </div>
             <!-- box di destra  -->
