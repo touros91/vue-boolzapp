@@ -51,7 +51,7 @@
                 <!-- lista delle Chats  -->
                 <div class="chats">
                     <ul>
-                        <li v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index">
+                        <li v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                             <span>{{contact.name}}</span>
                         </li>

@@ -102,13 +102,13 @@ body {
 
 .search {
     padding: 5px;
-    height: 60px;
+    height: 40px;
 }
 
 input[type="text"] {
     width: 100%;
-    padding: 5px;
-    font-size: 10px;
+    padding: 10px;
+    font-size: 12px;
     border: none;
     border-radius: 3px;
     font-weight: 600;
@@ -123,9 +123,12 @@ input[type="text"] {
 
 .chats ul li {
     list-style: none;
-    margin-bottom: 10px;
     padding: 10px;
     display: flex;
+}
+
+.chats ul li:first-child:active {
+    background-color: #E9EBEB;
 }
 
 .chats ul li img {
@@ -138,6 +141,10 @@ input[type="text"] {
     background-color: #E9EBEB;
 }
 
+.bg-grey {
+    background-color: #E9EBEB;
+}
+
 /* sezione Messaggi della Chat  */
 
 .contact-name{
@@ -145,8 +152,12 @@ input[type="text"] {
     vertical-align: middle;
 }
 
+.contact-name span {
+    font-size: 14px;
+}
+
 .contact-name div {
-    font-size: 10px;
+    font-size: 12px;
     color: #B1B1B1;
 }
 
