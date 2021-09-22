@@ -52,7 +52,7 @@
                 <div class="chats">
                     <ul>
                         <li v-for="(contact, index) in contacts" :key="index">
-                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                             <span>{{contact.name}}</span>
                         </li>
                     </ul>
