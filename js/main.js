@@ -11,7 +11,7 @@ const app = new Vue(
                         {
                             date: '10/01/2020 15:30:55',
                             message: 'Hai portato a spasso il cane?',
-                            status: 'sent'
+                            status: 'sent',
                         },
                         {
                             date: '10/01/2020 15:50:00',
@@ -86,14 +86,23 @@ const app = new Vue(
             ],
             newMessage: "",
             contactIndex: 0,
-            search: ""
+            search: "",
+            deleteId: 10,
+            // msgIndex: null,
+            infoMsg: "Info messaggio",
+            cancelMsg: "Cancella messaggio",
+            deleteMsg: 
+                {
+                index: false,
+                show: false
+                }
         },
         methods: {
             sendMessage: function(){
                 if(this.newMessage != "") {
                     this.contacts[this.contactIndex].messages.push(
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                             message: this.newMessage,
                             status: `sent`
                         }
@@ -103,7 +112,7 @@ const app = new Vue(
                  setTimeout(() => {
                     this.contacts[this.contactIndex].messages.push(
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                             message: "ok",
                             status: `received`
                         }
@@ -120,10 +129,20 @@ const app = new Vue(
                     } else {
                         this.contacts[i].visible = false;
                         console.log("not visibile");
-
                     }
                 }
-            }    
+            }
+    
+        // cancellaMessaggio: function(index){
+        //     if(this.deleteMsg.index != false && this.deleteMsg.index != index) {
+        //         this.deleteMsg.show = false;
+        //         this.deleteMsg.index = false;
+        //     }
+        //     this.deleteMsg.index = index;
+        //     this.deleteMsg.show = (this.deleteMsg.show) ? false : true;
+        //     console.log(this.deleteMsg.show, this.deleteMsg.index);
+        // }
+
         }
     }
 )

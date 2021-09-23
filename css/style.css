@@ -177,6 +177,7 @@ input[type="text"] {
     margin-top: 20px;
     padding: 5px;
     border-radius: 10px;
+    position: relative;
 }
 
 .chat-container span {
@@ -216,4 +217,17 @@ input[type="text"] {
 .write-message i:last-child {
     margin-right: 10px;
     color: #6B7376;
+}
+
+select {
+    position: absolute;
+    bottom: -20px;
+    right: 30px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }

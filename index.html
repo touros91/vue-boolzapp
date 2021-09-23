@@ -24,9 +24,9 @@
                 <div class="username">
                     <div class="my-account">
                         <div class="username-avatar">
-                            <img src="img/avatar_io.jpg" alt="Username Avatar">
+                            <img src="img/avatar_2.jpg" alt="Username Avatar">
                         </div>
-                        <span>Nome Utente</span>
+                        <span>Andrea</span>
                     </div>
                     <div class="username-icons">
                         <i class="fas fa-circle-notch"></i>
@@ -80,12 +80,17 @@
                 </div>
 
                 <!-- sezione Messaggi della Chat  -->
-                <div class="chat-container">             
-                            <li v-for="(msg, index) in contacts[contactIndex].messages" :key="index" :class='msg.status == "sent" ? "green" : "white"'>
+                <div class="chat-container">  
+                        <ul>           
+                            <li @click="deleteId = index" v-for="(msg, index) in contacts[contactIndex].messages" :key="index" :class='msg.status == "sent" ? "green" : "white"'>
+                                <select name="" id="" v-if="deleteId == index">
+                                    <option value="">{{infoMsg}}</option>
+                                    <option value="">{{cancelMsg}}</option>
+                                </select>
                                 <span>{{msg.message}}</span>
-                                <div>{{msg.date}}</div>
-                            </li>   
-                        </ul>
+                                <div>{{msg.date}}</div>                        
+                            </li>        
+                        </ul>   
                 </div>
 
                 <div class="write-message">
@@ -95,6 +100,7 @@
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
+
 
 
 
@@ -116,5 +122,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
 </body>
 </html>
