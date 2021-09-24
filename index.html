@@ -46,7 +46,7 @@
                 </div>
                 <!-- sezione input per la ricerca  -->
                 <div class="search">
-                    <input v-model="search" @change="findChat()" type="text" class="fas" placeholder="     &#xf002             Cerca o inizia una nuova chat">
+                    <input v-model="search" @keyup="findChat()" type="text" class="fas" placeholder="     &#xf002             Cerca o inizia una nuova chat">
                     
                 </div>
                 <!-- lista delle Chats  -->
