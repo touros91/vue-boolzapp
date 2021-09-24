@@ -87,18 +87,15 @@ const app = new Vue(
             newMessage: "",
             contactIndex: 0,
             search: "",
-            deleteId: 10,
-            // msgIndex: null,
+            deleteId: null,
+            dateMsg: dayjs().format('HH:mm'),
             infoMsg: "Info messaggio",
             cancelMsg: "Cancella messaggio",
-            deleteMsg: 
-                {
-                index: false,
-                show: false
-                }
+            infoId: null
         },
         methods: {
             sendMessage: function(){
+                // inserisco il messaggio scritto nell'input come nuovo oggetto nell'oggetto messages 
                 if(this.newMessage != "") {
                     this.contacts[this.contactIndex].messages.push(
                         {
@@ -107,8 +104,10 @@ const app = new Vue(
                             status: `sent`
                         }
                     );
+                    // pulisco il campo input 
                     this.newMessage = "";
                 }
+                // risposta automatica con "ok" dopo 1 secondo 
                  setTimeout(() => {
                     this.contacts[this.contactIndex].messages.push(
                         {
@@ -120,29 +119,45 @@ const app = new Vue(
                 }, 1000);
             },
             findChat: function(){
+                // attraverso tutto l'array contacts e transformo tutti i nomi in minusconlo e anche l'input inserito in "search"
                 for(let i = 0; i < this.contacts.length; i++) {
-
+                // e  contemporaneamente col metodo includes controllo se quello inserito in search è compreso nella proprietà nome dell'array contacts
+                //  se è vero quindi se è presente il metodo includes ritorna true e imposto la proprietà visible come true altrimenti la imposto come false
                     if (this.contacts[i].name.toLowerCase().includes(this.search.toLowerCase())) {
-                        console.log("visibile");
-                    
                         this.contacts[i].visible = true;
                     } else {
                         this.contacts[i].visible = false;
-                        console.log("not visibile");
                     }
+                    // questo controllo mi serve nel v-if dell'html nella sezione lista Chats es. (v-if="contact.visible == true")
+                }
+            },
+            // funzione da eseguire al click sulla chat nell'html
+            currentContactIndex: function(index){
+                // ogni volta che clicco su una chat assegno il valore corrent di index a contactIndex
+                this.contactIndex = index;
+                // e setto il valore di deleteId e infoID a null per fare scomparire il menu a tendina del messaggio quando cambio chat e quindi non compare in automatico anche nei messaggi delle altre chats 
+                this.deleteId = null;
+                this.infoId = null;
+            },
+            menu: function(index){
+                // quando clicco sul messaggio compare il menu a tendina
+                if(this.deleteId == null) {
+                    this.deleteId = index; 
+                } else { 
+                // quando ci clicco nuovamente il menu a tendina scompare perchè risetto deleteId a null
+                    this.deleteId = null;
+                }
+            },
+            deleteMessage: function(index){
+                this.contacts[this.contactIndex].messages[index] = false;
+            },
+            infoMessagge: function(index){
+                if (this.infoId == null) {
+                    this.infoId = index;
+                } else {
+                    this.infoId = null;
                 }
             }
-    
-        // cancellaMessaggio: function(index){
-        //     if(this.deleteMsg.index != false && this.deleteMsg.index != index) {
-        //         this.deleteMsg.show = false;
-        //         this.deleteMsg.index = false;
-        //     }
-        //     this.deleteMsg.index = index;
-        //     this.deleteMsg.show = (this.deleteMsg.show) ? false : true;
-        //     console.log(this.deleteMsg.show, this.deleteMsg.index);
-        // }
-
         }
     }
-)
+);

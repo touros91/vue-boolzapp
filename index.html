@@ -46,13 +46,13 @@
                 </div>
                 <!-- sezione input per la ricerca  -->
                 <div class="search">
-                    <input v-model="search" @change="findChat()" type="text" class="fas" placeholder="          &#xf002                 Cerca o inizia una nuova chat">
+                    <input v-model="search" @change="findChat()" type="text" class="fas" placeholder="     &#xf002             Cerca o inizia una nuova chat">
                     
                 </div>
                 <!-- lista delle Chats  -->
                 <div class="chats">
                     <ul>
-                        <li v-if="contact.visible == true" v-for="(contact, index) in contacts" :key="index" @click="contactIndex = index" :class="contactIndex == index ? `bg-grey` : ``">
+                        <li v-if="contact.visible == true" v-for="(contact, index) in contacts" :key="index" @click="currentContactIndex(index)" :class="contactIndex == index ? `bg-grey` : ``">
                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                             <span>{{contact.name}}</span>
                         </li>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="contact-name">
                             <span>{{contacts[contactIndex].name}}</span>
-                            <div>Ultimo accesso oggi alle</div>
+                            <div>Ultimo accesso oggi alle {{dateMsg}}</div>
                         </div>
                     </div>
                     <div class="username-icons">
@@ -80,16 +80,20 @@
                 </div>
 
                 <!-- sezione Messaggi della Chat  -->
-                <div class="chat-container">  
-                        <ul>           
-                            <li @click="deleteId = index" v-for="(msg, index) in contacts[contactIndex].messages" :key="index" :class='msg.status == "sent" ? "green" : "white"'>
-                                <select name="" id="" v-if="deleteId == index">
-                                    <option value="">{{infoMsg}}</option>
-                                    <option value="">{{cancelMsg}}</option>
+                <div class="chat-container" v-chat-scroll>  
+                        <ul>
+                            <li v-if="msg != false" @click="menu(index)" v-for="(msg, index) in contacts[contactIndex].messages" :key="index" :class='msg.status == "sent" ? "green" : "white"'>
+                                <select size="2" name="" id="" v-if="deleteId == index">
+                                    <option value="" @click="infoMessagge(index)">{{infoMsg}}</option>
+                                    <option value="" @click="deleteMessage(index)">{{cancelMsg}}</option>
                                 </select>
-                                <span>{{msg.message}}</span>
-                                <div>{{msg.date}}</div>                        
-                            </li>        
+                                <span >{{msg.message}}</span>
+                                <div>{{msg.date}}</div>  
+                                <div @click="infoId = null" v-if="infoId == index">
+                                    <div><i class="fas fa-check-double" id="check-blu"></i> Letto alle ore {{dateMsg}}</div>
+                                    <div><i class="fas fa-check-double"></i> Consegnato alle ore {{dateMsg}}</div>
+                                </div>  
+                            </li>     
                         </ul>   
                 </div>
 
@@ -100,29 +104,16 @@
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
-
-
-
-
         </div>
-
-
-
-
-
-
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="js/main.js"></script>
+    <!-- cdn per la data e orario corrente -->
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <script>dayjs().format()</script>
+    <!-- cdn Vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- plugin autoscroll nelle chat  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-chat-scroll/dist/vue-chat-scroll.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
